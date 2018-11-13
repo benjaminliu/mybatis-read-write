@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/console.log</File>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%t] %c{1}.%M\(%L\): %m%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/%d{yyyy-MM-dd, aux}/console.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="logFile"/>
+    </root>
+
+</configuration>
